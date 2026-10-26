@@ -3,7 +3,19 @@ print("Let's play hangman!")
 user_input = input("Enter a letter: ")
 words = ["laddle", "keys", "garbage"]
 single_word = random.choice(words)
-print(single_word)
+lives = 6
+
+print("The word has " + str(len(single_word)) + " letters.")
+
+for i in range(len(single_word)):
+    print("_", end="")
+
+
 while len(user_input) > 1 or len(user_input) == 0 or not user_input.isalpha():
-    print("Please try again.")
+    print("Not a valid guess. Please enter a single letter.")
     user_input = input("Enter a letter: ")
+
+if user_input in single_word:
+    print("You guessed a letter correctly!")
+    print("You have " + str(lives) + " lives left.")
+
