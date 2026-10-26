@@ -1,6 +1,7 @@
 import random
+
 print("Let's play hangman!")
-user_input = input("Enter a letter: ")
+
 words = ["laddle", "keys", "garbage"]
 single_word = random.choice(words)
 lives = 6
