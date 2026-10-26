@@ -1,4 +1,5 @@
-print("Let's play hangman!")
 import random
+print("Let's play hangman!")
+
 words = ["laddle", "keys", "garbage"]
 single_word = random.choice(words)
