@@ -1,6 +1,9 @@
 import random
 
-words = ["ladle", "keys", "garbage"]
+words = ["ladle", "garbage", "pencil", "orange", "guitar", "window",
+         "basket", "candle", "dragon", "forest", "island", "jacket",
+         "kitten", "lantern", "monkey", "needle", "planet", "rocket",
+         "silver", "turtle", "umbrella", "village", "walnut", "yellow"]
 
 # makes the word with the guessed letters showing and the unguessed letters hidden
 def build_display(single_word, guessed_letters):
@@ -37,20 +40,20 @@ def play_game():
     single_word = random.choice(words)
     lives = 6
     guessed_letters = set()
- 
+
     while lives > 0:
         displayed_word = build_display(single_word, guessed_letters)
         print(displayed_word)
- 
+
         # if no underscores are left then the word has been guessed and the game is over
         if "_" not in displayed_word:
             print("Word guessed, you've won!")
             return
- 
+
         print("Lives left: " + str(lives))
         user_input = get_guess(guessed_letters)
 
- if user_input == "guess answer":
+        if user_input == "guess answer":
             full_guess = input("Enter the full word: ").strip().lower()
             if full_guess == single_word:
                 print(" ".join(single_word))
@@ -58,19 +61,19 @@ def play_game():
             else:
                 print("Out of lives, game over!")
             return
- 
+
         # makes a repeated letter not cost any lives
         if user_input in guessed_letters:
             print("You already guessed that letter.")
             continue
- 
+
         guessed_letters.add(user_input)
- 
+
         if user_input not in single_word:
             lives -= 1
             print("Letter not found!")
 
-    #lives reaches zero
+    # lives reaches zero
     print(build_display(single_word, guessed_letters))
     print("Out of lives, game over!")
 
